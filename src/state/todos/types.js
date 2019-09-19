@@ -1,6 +1,4 @@
 export const ADD_TODO = 'TODO/ADD';
-export const SET_FULFILLED_STATE = 'TODO/FULFILLED/STATE';
-
-export const ADD_TODO_SUCCESS = 'TODO/ADD/SUCCESS';
-export const SET_FULFILLED_SUCCESS = 'TODO/FULFILLED/SUCCESS';
-
+export const REMOVE_TODO = 'TODO/REMOVE';
+export const UPDATE_TODO = 'TODO/UPDATE';
+export const GET_TODOS = 'TODO/GET';
