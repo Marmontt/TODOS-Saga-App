@@ -5,10 +5,10 @@ export const addTodo = (todo) => {
         type: actions.ADD_TODO,
         payload: todo
     }
-}
+};
 
 export const getTodos = () => {
     return {
         type: actions.GET_TODOS
     }
-}
+};
