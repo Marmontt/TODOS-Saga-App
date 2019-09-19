@@ -1,21 +1,18 @@
-import {applyMiddleware, combineReducers, createStore} from 'redux';
+import {createStore, applyMiddleware, combineReducers, compose} from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import {composeWithDevTools} from 'redux-devtools-extension';
 
-import {todosReducer} from "./todos";
-import {todoSagas} from './todos'
+import todosReducer from "./todos";
 
 const rootReducer = combineReducers({
     todos: todosReducer
 });
 
-const rootSaga = createSagaMiddleware();
-
 const store = createStore(
     rootReducer,
-    composeWithDevTools(applyMiddleware(rootSaga))
+    compose(
+        applyMiddleware(createSagaMiddleware()),
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    )
 );
-
-rootSaga.run(todoSagas);
 
 export default store;
