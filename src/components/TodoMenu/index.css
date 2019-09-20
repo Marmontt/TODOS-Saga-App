@@ -1,0 +1,49 @@
+.todo-menu-container {
+    margin: 0 auto;
+    width: 60vw;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    border: 2px solid #e3e8eb;
+    border-radius: 5px;
+    background: white;
+}
+
+.todo-menu-input {
+    height: 2em;
+    width: 50%;
+    padding: 5px;
+    margin: 5px;
+    border: 0;
+    color: #7d7d7d;
+    font-family: Roboto, serif;
+    font-weight: 500;
+    flex-grow: 1;
+    font-size: 20px;
+}
+.todo-menu-input:focus{
+    outline-width: 0;
+}
+
+.todo-menu-button {
+    border-radius: 3px;
+    width: 6em;
+    height: 3em;
+    color: #fff;
+    background: #26a59a;
+    border: 1px solid #26a59a;
+    font-family: Roboto, serif;
+    margin: 0 1em;
+    font-weight: 500;
+    outline: none;
+}
+
+.todo-menu-button:hover {
+    cursor: pointer;
+    background: #21877c;
+}
+
+.todo-menu-button:active {
+    border: 1px solid #000;
+    transform: translateY(2px);
+}

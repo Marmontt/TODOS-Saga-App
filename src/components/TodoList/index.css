@@ -1,0 +1,10 @@
+.todoList-container {
+    margin: 0 auto 1em auto;
+    width: 60vw;
+}
+
+.todoList-title {
+    font-family: Roboto, serif;
+    font-weight: bold;
+    color: #555555;
+}
