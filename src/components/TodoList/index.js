@@ -1,37 +1,17 @@
-import React, {useState} from 'react';
-import {useSelector, connect} from 'react-redux';
-
-import TodoCreator from "./TodoCreator";
-import {getAllTodos, getTodos} from "../../state/selectors";
-
+import React from 'react';
+import TodoCreator from "../TodoMenu/components/TodoCreator";
 import './index.css';
 
-
 const TodoList = () => {
-    const todosList = useSelector(getAllTodos);
-    const [toggleState, setToggleState] = useState(false);
-    const todos = useSelector(state => getTodos(state, toggleState));
-
     return (
         <div className={'todoList-container'}>
-            <div className={'todoList-menu'}>
-                <span className={'todoList-title'}>React Todos List</span>
-                <div className={'todoList-fulfilled-container'}>
-                    <span className={'todoList-fulfilled'}>Show fulfilled todos:</span>
-                    <label className={'switch'}>
-                        <input type={'checkbox'} onChange={() => setToggleState(!toggleState)} checked={toggleState}/>
-                        <span className={'slider round'}/>
-                    </label>
-                </div>
-            </div>
-            {
-                todos.map(({text, color, fulfilled}, index) => <TodoCreator todoIndex={index} key={index}
-                                                                            color={color} text={text}
-                                                                            fulfilled={fulfilled}/>)
-            }
+            <p className={'todoList-title'}>React Todo List</p>
+            <TodoCreator color={'#f5a'} text={'Blah-blah-blah'}/>
+            <TodoCreator color={'#9170cc'} text={'Blah-blah-blah'}/>
+            <TodoCreator color={'#5cb3f9'} text={'Blah-blah-blah'}/>
+            <TodoCreator color={'#ffe07f'} text={'Blah-blah-blah'}/>
         </div>
     );
 };
-
 
 export default TodoList;
