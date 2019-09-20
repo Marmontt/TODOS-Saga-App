@@ -4,10 +4,10 @@
     border-radius: 5px;
     margin: 5px;
     position: relative;
-    border: 2px solid #ffffff;
+    border: 1px solid #afafaf;
 }
 
 .box:hover{
     cursor: pointer;
-    border: 2px solid #555555;
+    border: 1px solid #555555;
 }
