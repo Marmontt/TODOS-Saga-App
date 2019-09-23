@@ -1,10 +1,12 @@
 import * as todosActions from './action';
-import * as todosTyps from './types';
+import * as todosTypes from './types';
 
-import reducer from './reducer';
+import todoSagas from './sagas';
+import todosReducer from './reducer';
 
 export {
     todosActions,
-    todosTyps
+    todosTypes,
+    todoSagas,
+    todosReducer
 }
-export default reducer;
