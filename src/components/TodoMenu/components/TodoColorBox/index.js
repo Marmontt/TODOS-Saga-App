@@ -1,14 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './index.css'
 
-const TodoColorBox = ({color}) => {
-    const [chosenColor, setColor] = useState('');
+const TodoColorBox = ({chosenColor, setColor, color}) => {
     return (
         <div
-            style={{backgroundColor: color}}
+            style={chosenColor === color ? {backgroundColor: color, border: '2px solid #000'} : {backgroundColor: color}}
             className={'box'}
-            onClick={()=>setColor(color)}>
-
+            onClick={() => setColor(color)}
+        >
         </div>
     );
 };
