@@ -8,8 +8,8 @@ document.body.style.background = '#ebf3f6';
 function App() {
     return (
         <div className={'app-container'}>
-            <TodoList/>
             <TodoMenu/>
+            <TodoList/>
         </div>
     );
 }
