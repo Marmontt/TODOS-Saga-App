@@ -6,6 +6,7 @@ const initialState = {
 };
 
 const todosReducer = (state = initialState, action) => {
+    let todos;
     switch (action.type) {
         case types.ADD_TODO_SUCCESS:
             return {
@@ -20,10 +21,17 @@ const todosReducer = (state = initialState, action) => {
                 ]
             };
         case types.REMOVE_TODO_SUCCESS:
-            let todos = state.todos.slice();
+            todos = state.todos.slice();
             return {
                 ...state,
                 todos: todos.filter(todo => todo.fulfilled === false)
+            };
+        case types.SET_FULFILLED_SUCCESS:
+            todos = state.todos.slice();
+            todos[action.payload.index].fulfilled = action.payload.fulfilled;
+            return {
+                ...state,
+                todos: todos
             };
         default:
             return state;
