@@ -23,7 +23,19 @@ export function* removeTodo(action) {
     })
 }
 
+function* setFulfilledState(action) {
+    yield delay(500);
+    yield put({
+        type: todoActions.SET_FULFILLED_SUCCESS,
+        payload: {
+            index: action.payload.index,
+            fulfilled: action.payload.fulfilled
+        }
+    })
+}
+
 export default function* todoSaga() {
     yield takeEvery(todoActions.ADD_TODO, addTodo);
     yield takeEvery(todoActions.REMOVE_TODO, removeTodo);
+    yield takeEvery(todoActions.SET_FULFILLED_STATE, setFulfilledState);
 }
