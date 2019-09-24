@@ -13,10 +13,3 @@ export const setFulfilledState = (index, fulfilled) => {
         payload: {index, fulfilled}
     }
 };
-
-export const removeTodo = (index) => {
-    return {
-        type: actions.REMOVE_TODO_SUCCESS,
-        payload: {index}
-    }
-};
