@@ -8,6 +8,11 @@ const initialState = {
 const todosReducer = (state = initialState, action) => {
     let todos;
     switch (action.type) {
+        case types.GET_TODOS_SUCCESS:
+            return {
+                ...state,
+                todos: action.payload
+            }
         case types.ADD_TODO_SUCCESS:
             return {
                 ...state,

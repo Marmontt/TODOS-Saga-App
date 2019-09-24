@@ -1,6 +1,10 @@
 import {put, takeEvery, delay} from 'redux-saga/effects'
 import * as todoActions from './types'
 
+export function* getTodos() {
+    console.log('API CALL')
+}
+
 export function* addTodo(action) {
     yield delay(1000);
     yield put({
@@ -25,6 +29,7 @@ function* setFulfilledState(action) {
 }
 
 export default function* todoSaga() {
+    yield takeEvery(todoActions.GET_TODOS_REQUEST, getTodos)
     yield takeEvery(todoActions.ADD_TODO, addTodo);
     yield takeEvery(todoActions.SET_FULFILLED_STATE, setFulfilledState);
 }
