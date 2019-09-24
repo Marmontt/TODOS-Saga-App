@@ -1,7 +1,6 @@
 import * as types from './types';
 
 const initialState = {
-    showFulfilledTodos: false,
     chosenColor: '#eb716a',
     todos: []
 };
@@ -20,12 +19,6 @@ const todosReducer = (state = initialState, action) => {
                         fulfilled: action.payload.fulfilled
                     }
                 ]
-            };
-        case types.REMOVE_TODO_SUCCESS:
-            todos = state.todos.slice();
-            return {
-                ...state,
-                todos: todos.filter(todo => todo.fulfilled === false)
             };
         case types.SET_FULFILLED_SUCCESS:
             todos = state.todos.slice();
