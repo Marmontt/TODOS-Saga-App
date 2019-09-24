@@ -1,7 +1,10 @@
 import React from 'react';
-import './index.css';
-import * as todoActions from "../../../state/todos/action";
 import {connect} from 'react-redux';
+
+import * as todoActions from "../../../state/todos/action";
+
+import './index.css';
+
 
 const TodoCreator = ({color, text, fulfilled, todoIndex, setFulfilledState}) => {
 
