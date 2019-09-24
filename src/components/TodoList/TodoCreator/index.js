@@ -1,10 +1,7 @@
 import React from 'react';
-import {connect} from 'react-redux';
-
-import * as todoActions from "../../../state/todos/action";
-
 import './index.css';
-
+import * as todoActions from "../../../state/todos/action";
+import {connect} from 'react-redux';
 
 const TodoCreator = ({color, text, fulfilled, todoIndex, setFulfilledState}) => {
 
@@ -17,7 +14,7 @@ const TodoCreator = ({color, text, fulfilled, todoIndex, setFulfilledState}) => 
                 <input onChange={() => {
                     setFulfilledState(todoIndex, !fulfilled);
                 }} className={'todoCreator-checkbox'} checked={fulfilled} type="checkbox"/>
-                <div className={'todoCreator-text'}>{`${todoIndex + 1}: ${text}`}</div>
+                <div className={'todoCreator-text'}>{text}</div>
             </div>
         </div>
     );
