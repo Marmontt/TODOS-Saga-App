@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
-import TodoCreator from "./TodoCreator";
-import './index.css';
-import {getAllTodos} from "../../state/selectors";
 import {useSelector} from 'react-redux';
+
+import TodoCreator from "./TodoCreator";
+import {getAllTodos} from "../../state/selectors";
+
+import './index.css';
 
 
 const TodoList = () => {

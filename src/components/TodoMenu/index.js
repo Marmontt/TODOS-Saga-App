@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux'
+
 import * as todoActions from '../../state/todos/action'
 import TodoColorBox from "./components/TodoColorBox";
+
 import './index.css';
 
 const TodoMenu = (props) => {
