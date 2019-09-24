@@ -17,7 +17,7 @@ const TodoCreator = ({color, text, fulfilled, todoIndex, setFulfilledState}) => 
                 <input onChange={() => {
                     setFulfilledState(todoIndex, !fulfilled);
                 }} className={'todoCreator-checkbox'} checked={fulfilled} type="checkbox"/>
-                <div className={'todoCreator-text'}>{text}</div>
+                <div className={'todoCreator-text'}>{`${todoIndex + 1}: ${text}`}</div>
             </div>
         </div>
     );
