@@ -1,14 +1,13 @@
 import React, {useState} from 'react';
-import {useSelector, connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 
 import TodoCreator from "./TodoCreator";
-import {getAllTodos, getTodos} from "../../state/selectors";
+import {getTodos} from "../../state/selectors";
 
 import './index.css';
 
 
 const TodoList = () => {
-    const todosList = useSelector(getAllTodos);
     const [toggleState, setToggleState] = useState(false);
     const todos = useSelector(state => getTodos(state, toggleState));
 

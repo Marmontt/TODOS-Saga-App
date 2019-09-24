@@ -35,5 +35,4 @@ const mapDispatchToProps = {
     addTodo: todoActions.addTodo
 };
 
-
 export default connect(null, mapDispatchToProps)(TodoMenu);

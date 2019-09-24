@@ -5,7 +5,6 @@ import TodoList from "./components/TodoList";
 
 import './App.css';
 
-// document.body.style.background = '#ebf3f6';
 
 function App() {
     return (
