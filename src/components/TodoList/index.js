@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {useSelector} from 'react-redux';
+import {useSelector, connect} from 'react-redux';
 
 import TodoCreator from "./TodoCreator";
-import {getAllTodos} from "../../state/selectors";
+import {getAllTodos, getTodos} from "../../state/selectors";
 
 import './index.css';
 
@@ -10,6 +10,7 @@ import './index.css';
 const TodoList = () => {
     const todosList = useSelector(getAllTodos);
     const [toggleState, setToggleState] = useState(false);
+    const todos = useSelector(state => getTodos(state, toggleState));
 
     return (
         <div className={'todoList-container'}>
@@ -24,16 +25,9 @@ const TodoList = () => {
                 </div>
             </div>
             {
-                toggleState === false ?
-                    todosList
-                        .map(({text, color, fulfilled}, index) =>
-                            <TodoCreator todoIndex={index} key={index} color={color} text={text}
-                                         fulfilled={fulfilled}/>)
-                        .filter(todoCreator => todoCreator.props.fulfilled === false) :
-                    todosList
-                        .map(({text, color, fulfilled}, index) =>
-                            <TodoCreator todoIndex={index} key={index} color={color} text={text}
-                                         fulfilled={fulfilled}/>)
+                todos.map(({text, color, fulfilled}, index) => <TodoCreator todoIndex={index} key={index}
+                                                                            color={color} text={text}
+                                                                            fulfilled={fulfilled}/>)
             }
         </div>
     );
