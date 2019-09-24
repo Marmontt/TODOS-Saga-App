@@ -2,10 +2,12 @@ export const ADD_TODO = 'TODO/ADD';
 export const REMOVE_TODO = 'TODO/REMOVE';
 export const UPDATE_TODO = 'TODO/UPDATE';
 export const GET_TODOS = 'TODO/GET';
-export const SET_COLOR = 'SET/COLOR';
+export const SET_COLOR = 'COLOR/SET';
+export const SET_FULFILLED_STATE = 'TODO/FULFILLED/STATE';
 
 
 
 export const ADD_TODO_SUCCESS = 'TODO/ADD/SUCCESS';
 export const REMOVE_TODO_SUCCESS = 'TODO/REMOVE/SUCCESS';
+export const SET_FULFILLED_SUCCESS = 'TODO/FULFILLED/SUCCESS';
 
