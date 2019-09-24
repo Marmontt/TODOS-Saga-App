@@ -1,14 +1,15 @@
 import * as actions from './types';
 
-export const addTodo = (todo) => {
+export const addTodo = (text, color, fulfilled = false) => {
     return {
         type: actions.ADD_TODO,
-        payload: todo
+        payload: {text, color, fulfilled}
     }
 };
 
-export const getTodos = () => {
+export const setFulfilledState = (index, fulfilled) => {
     return {
-        type: actions.GET_TODOS
+        type: actions.SET_FULFILLED_SUCCESS,
+        payload: {index, fulfilled}
     }
 };
