@@ -1,6 +1,7 @@
 import * as types from './types';
 
 const initialState = {
+    showFulfilledTodos: false,
     chosenColor: '#eb716a',
     todos: []
 };
