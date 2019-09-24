@@ -14,13 +14,11 @@
 }
 
 .todoCreator-line {
-    position: relative;
     flex-grow: 1;
     height: 1px;
 }
 
 .todoCreator-text {
-    position: relative;
     color: white;
     padding-left: 10px;
     font-family: Roboto, serif;
