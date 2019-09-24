@@ -7,16 +7,16 @@ export const addTodo = (text, color, fulfilled = false) => {
     }
 };
 
-export const setColor = (payload) => {
+export const setFulfilledState = (index, fulfilled) => {
     return {
-        type: actions.SET_COLOR,
-        payload
+        type: actions.SET_FULFILLED_SUCCESS,
+        payload: {index, fulfilled}
     }
 };
 
 export const removeTodo = (index) => {
     return {
-        type: actions.REMOVE_TODO,
+        type: actions.REMOVE_TODO_SUCCESS,
         payload: {index}
     }
 };
