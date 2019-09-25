@@ -16,7 +16,7 @@ const TodoList = () => {
             <div className={'todoList-menu'}>
                 <span className={'todoList-title'}>React Todos List</span>
                 <div className={'todoList-fulfilled-container'}>
-                    <span className={'todoList-fulfilled'}>Show fulfilled todos:</span>
+                    <span className={'todoList-fulfilled'}>Show fulfilled todos too:</span>
                     <label className={'switch'}>
                         <input type={'checkbox'} onChange={() => setToggleState(!toggleState)} checked={toggleState}/>
                         <span className={'slider round'}/>
@@ -24,9 +24,10 @@ const TodoList = () => {
                 </div>
             </div>
             {
-                todos.map(({text, color, fulfilled}, index) => <TodoCreator todoIndex={index} key={index}
-                                                                            color={color} text={text}
-                                                                            fulfilled={fulfilled}/>)
+                todos.map(({text, color, fulfilled, id}, index) => <TodoCreator todoIndex={id} key={index}
+                                                                                color={color}
+                                                                                text={text === '' ? 'Empty todo!' : text}
+                                                                                fulfilled={fulfilled}/>)
             }
         </div>
     );

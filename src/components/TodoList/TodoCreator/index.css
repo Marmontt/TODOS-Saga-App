@@ -10,6 +10,7 @@
 .todoCreator-content {
     display: flex;
     align-items: center;
+    position: absolute;
 }
 
 .todoCreator-line {
@@ -19,7 +20,7 @@
 
 .todoCreator-text {
     color: white;
-    padding-left: 10px;
+    padding-left: 15px;
     font-family: Roboto, serif;
     font-weight: 500;
 }
@@ -28,5 +29,4 @@
     width: 1.5em;
     height: 1.5em;
     border-right: 1px solid #fff;
-    z-index: 1;
 }

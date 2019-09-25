@@ -21,13 +21,14 @@ const todosReducer = (state = initialState, action) => {
                     {
                         text: action.payload.text,
                         color: action.payload.color,
-                        fulfilled: action.payload.fulfilled
+                        fulfilled: action.payload.fulfilled,
+                        id: action.payload.id
                     }
                 ]
             };
         case types.SET_FULFILLED_SUCCESS:
             todos = state.todos.slice();
-            todos[action.payload.index].fulfilled = action.payload.fulfilled;
+            todos.find(({id}) => id === action.payload.index).fulfilled = action.payload.fulfilled;
             return {
                 ...state,
                 todos: todos

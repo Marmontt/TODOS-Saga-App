@@ -1,6 +1,7 @@
 export const ADD_TODO = 'TODO/ADD';
 export const SET_FULFILLED_STATE = 'TODO/FULFILLED/STATE';
 
+export const UPDATE_TODO = "TODO/UPDATE";
 export const GET_TODOS_REQUEST = "TODOS/GET/REQUEST";
 export const GET_TODOS_SUCCESS ="TODOS/GET/SUCCESS";
 
