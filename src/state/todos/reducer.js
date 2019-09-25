@@ -12,7 +12,7 @@ const todosReducer = (state = initialState, action) => {
             return {
                 ...state,
                 todos: action.payload
-            }
+            };
         case types.ADD_TODO_SUCCESS:
             return {
                 ...state,

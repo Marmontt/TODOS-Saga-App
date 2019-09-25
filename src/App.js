@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux'
 import {todosActions} from './state/todos'
 
@@ -7,29 +7,24 @@ import TodoList from "./components/TodoList";
 
 import './App.css';
 
-class App extends React.Component {
+const App = (props) => {
 
-    constructor(props) {
-        super(props)
-    }
+    useEffect(() => {
+        props.getTodos();
+    }, []);
 
-    componentDidMount() {
-       this.props.getTodos();
-    }
+    return (
+        <div className={'app-container'}>
+            <TodoMenu/>
+            <TodoList/>
+        </div>
+    );
 
-    render() {
-        return (
-            <div className={'app-container'}>
-                <TodoMenu/>
-                <TodoList/>
-            </div>
-        );
-    }
-}
+};
 
 const mapActionsToProps = {
     getTodos: todosActions.getTodos
 
-}
+};
 
 export default connect(null, mapActionsToProps)(App);
