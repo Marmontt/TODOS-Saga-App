@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoColorBox should render properly 1`] = `
+<div
+  className="box"
+  onClick={[Function]}
+  style={
+    Object {
+      "backgroundColor": "yellow",
+    }
+  }
+/>
+`;

@@ -7,7 +7,7 @@ import {getTodos} from "../../state/selectors";
 import './index.css';
 
 
-const TodoList = () => {
+export const TodoList = () => {
     const [toggleState, setToggleState] = useState(false);
     const todos = useSelector(state => getTodos(state, toggleState));
 

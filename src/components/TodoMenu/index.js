@@ -6,7 +6,7 @@ import TodoColorBox from "./components/TodoColorBox";
 
 import './index.css';
 
-const TodoMenu = (props) => {
+export const TodoMenu = (props) => {
     const [todoText, setTodoText] = useState('');
     const [chosenColor, setColor] = useState('#eb716a');
 

@@ -6,7 +6,7 @@ import * as todoActions from "../../../state/todos/action";
 import './index.css';
 
 
-const TodoCreator = ({color, text, fulfilled, todoIndex, setFulfilledState}) => {
+export const TodoCreator = ({color, text, fulfilled, todoIndex, setFulfilledState}) => {
 
     return (
         <div style={{background: color}} className={'todoCreator-container'}>

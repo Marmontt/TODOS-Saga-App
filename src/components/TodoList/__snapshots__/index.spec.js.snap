@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoList should render properly 1`] = `
+<div
+  className="todoList-container"
+>
+  <div
+    className="todoList-menu"
+  >
+    <span
+      className="todoList-title"
+    >
+      React Todos List
+    </span>
+    <div
+      className="todoList-fulfilled-container"
+    >
+      <span
+        className="todoList-fulfilled"
+      >
+        Show fulfilled todos too:
+      </span>
+      <label
+        className="switch"
+      >
+        <input
+          checked={false}
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <span
+          className="slider round"
+        />
+      </label>
+    </div>
+  </div>
+</div>
+`;
