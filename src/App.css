@@ -1,14 +1,10 @@
-html, body{
+html, body {
     height: 100%;
     margin: 0;
-    padding:0;
+    padding: 0;
+    background: #ebf3f6;
 }
 
 .app-container {
-
-}
-
-#root {
-    background: #ebf3f6;
-    height: 100%;
+    padding-top: 10px;
 }

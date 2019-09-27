@@ -1,5 +1,6 @@
 .todo-menu-container {
     margin: 0 auto;
+
     width: 60vw;
     display: flex;
     align-items: center;
@@ -21,12 +22,13 @@
     flex-grow: 1;
     font-size: 20px;
 }
-.todo-menu-input:focus{
+
+.todo-menu-input:focus {
     outline-width: 0;
 }
 
 .todo-menu-button {
-    border-radius: 3px;
+    border-radius: 5px;
     width: 6em;
     height: 3em;
     color: #fff;
