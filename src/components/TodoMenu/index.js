@@ -17,6 +17,7 @@ export const TodoMenu = (props) => {
                 type="text"
                 placeholder={"Add New Item"}
                 value={todoText}
+                onClick={() => setTodoText('')}
                 onChange={e => setTodoText(e.target.value)}
             />
             <TodoColorBox chosenColor={chosenColor} setColor={setColor} color={'#eb716a'}/>
