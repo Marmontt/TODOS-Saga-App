@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoMenu should render properly 1`] = `
+<div
+  className="todo-menu-container"
+>
+  <input
+    className="todo-menu-input"
+    onChange={[Function]}
+    onClick={[Function]}
+    placeholder="Add New Item"
+    type="text"
+    value=""
+  />
+  <TodoColorBox
+    chosenColor="#eb716a"
+    color="#eb716a"
+    setColor={[Function]}
+  />
+  <TodoColorBox
+    chosenColor="#eb716a"
+    color="#fe74a2"
+    setColor={[Function]}
+  />
+  <TodoColorBox
+    chosenColor="#eb716a"
+    color="#9170cc"
+    setColor={[Function]}
+  />
+  <TodoColorBox
+    chosenColor="#eb716a"
+    color="#5cb3f9"
+    setColor={[Function]}
+  />
+  <TodoColorBox
+    chosenColor="#eb716a"
+    color="#6ed3e5"
+    setColor={[Function]}
+  />
+  <TodoColorBox
+    chosenColor="#eb716a"
+    color="#ffe07f"
+    setColor={[Function]}
+  />
+  <button
+    className="todo-menu-button"
+    onClick={[Function]}
+  >
+    Add
+  </button>
+</div>
+`;

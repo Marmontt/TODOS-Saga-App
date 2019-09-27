@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoCreator should render properly 1`] = `
+<div
+  className="todoCreator-container"
+  style={
+    Object {
+      "background": "red",
+    }
+  }
+>
+  <div
+    className="todoCreator-content"
+  >
+    <input
+      checked={false}
+      className="todoCreator-checkbox"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <div
+      className="todoCreator-text"
+    >
+      some-test-text
+    </div>
+  </div>
+</div>
+`;
