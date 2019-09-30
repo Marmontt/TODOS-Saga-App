@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {connect} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {todosActions} from './state/todos'
 
 import TodoMenu from "./components/TodoMenu";
@@ -8,9 +8,10 @@ import TodoList from "./components/TodoList";
 import './App.css';
 
 const App = (props) => {
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        props.getTodos();
+        dispatch(todosActions.getTodos());
     }, []);
 
     return (
@@ -22,9 +23,5 @@ const App = (props) => {
 
 };
 
-const mapActionsToProps = {
-    getTodos: todosActions.getTodos
 
-};
-
-export default connect(null, mapActionsToProps)(App);
+export default App;

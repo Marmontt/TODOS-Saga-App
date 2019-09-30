@@ -20,12 +20,6 @@ export const setTodos = (todos) => {
     }
 };
 
-export const updateTodo = (todo) => {
-    return {
-        type: actions.UPDATE_TODO,
-        payload: todo
-    }
-};
 
 export const setFulfilledState = (index, fulfilled) => {
     return {

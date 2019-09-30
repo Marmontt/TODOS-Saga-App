@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {connect} from 'react-redux'
+import {connect, useDispatch} from 'react-redux'
 
 import * as todoActions from '../../state/todos/action'
 import TodoColorBox from "./components/TodoColorBox";
@@ -9,6 +9,7 @@ import './index.css';
 export const TodoMenu = (props) => {
     const [todoText, setTodoText] = useState('');
     const [chosenColor, setColor] = useState('#eb716a');
+    const dispatch = useDispatch();
 
     return (
         <div className={'todo-menu-container'}>
@@ -26,14 +27,10 @@ export const TodoMenu = (props) => {
             <TodoColorBox chosenColor={chosenColor} setColor={setColor} color={'#5cb3f9'}/>
             <TodoColorBox chosenColor={chosenColor} setColor={setColor} color={'#6ed3e5'}/>
             <TodoColorBox chosenColor={chosenColor} setColor={setColor} color={'#ffe07f'}/>
-            <button onClick={() => props.addTodo(todoText, chosenColor)} className={'todo-menu-button'}>Add</button>
+            <button onClick={() => dispatch(todoActions.addTodo(todoText, chosenColor))} className={'todo-menu-button'}>Add</button>
         </div>
     )
 };
 
 
-const mapDispatchToProps = {
-    addTodo: todoActions.addTodo
-};
-
-export default connect(null, mapDispatchToProps)(TodoMenu);
+export default TodoMenu;

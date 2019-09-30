@@ -34,5 +34,12 @@ exports[`TodoList should render properly 1`] = `
       </label>
     </div>
   </div>
+  <TodoCreator
+    color="#fff"
+    fulfilled={false}
+    key="0"
+    text="asdasd"
+    todoIndex={1}
+  />
 </div>
 `;

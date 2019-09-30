@@ -1,13 +1,13 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import {useDispatch} from 'react-redux';
 
 import * as todoActions from "../../../state/todos/action";
 
 import './index.css';
 
 
-export const TodoCreator = ({color, text, fulfilled, todoIndex, setFulfilledState}) => {
-
+const TodoCreator = ({color, text, fulfilled, todoIndex}) => {
+    const dispatch = useDispatch();
     return (
         <div style={{background: color}} className={'todoCreator-container'}>
             {fulfilled === true ?
@@ -15,7 +15,7 @@ export const TodoCreator = ({color, text, fulfilled, todoIndex, setFulfilledStat
                 : null}
             <div className={'todoCreator-content'}>
                 <input onChange={() => {
-                    setFulfilledState(todoIndex, !fulfilled);
+                    dispatch(todoActions.setFulfilledState(todoIndex, !fulfilled));
                 }} className={'todoCreator-checkbox'} checked={fulfilled} type="checkbox"/>
                 <div className={'todoCreator-text'}>{text}</div>
             </div>
@@ -23,8 +23,5 @@ export const TodoCreator = ({color, text, fulfilled, todoIndex, setFulfilledStat
     );
 };
 
-const mapActionsToProps = {
-    setFulfilledState: todoActions.setFulfilledState
-};
 
-export default connect(null, mapActionsToProps)(TodoCreator);
+export default TodoCreator;
