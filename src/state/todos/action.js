@@ -7,13 +7,13 @@ export const addTodo = (text, color, fulfilled = false) => {
     }
 };
 
-export const getTodos = () => {
+export const getTodosRequest = () => {
     return {
         type: actions.GET_TODOS_REQUEST
     }
 };
 
-export const setTodos = (todos) => {
+export const getTodosSuccess = (todos) => {
     return {
         type: actions.GET_TODOS_SUCCESS,
         payload: todos

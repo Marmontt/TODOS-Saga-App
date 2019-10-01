@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`todos reducer should handle ADD_TODO_SUCCESS 1`] = `
+Object {
+  "chosenColor": "#eb716a",
+  "todos": Array [
+    Object {
+      "color": "#fff",
+      "fulfilled": false,
+      "id": 1,
+      "text": "raq",
+    },
+  ],
+}
+`;
+
+exports[`todos reducer should handle GET_TODOS_SUCCESS 1`] = `
+Object {
+  "todos": Object {
+    "color": "#fff",
+    "fulfilled": false,
+    "index": 0,
+    "text": "raq",
+  },
+}
+`;
+
+exports[`todos reducer should handle SET_FULFILLED_SUCCESS 1`] = `
+Object {
+  "chosenColor": "#eb716a",
+  "todos": Array [
+    Object {
+      "color": "#fff",
+      "fulfilled": true,
+      "id": 0,
+      "text": "raq",
+    },
+  ],
+}
+`;
+
+exports[`todos reducer should return initial state 1`] = `
+Object {
+  "chosenColor": "#eb716a",
+  "todos": Array [],
+}
+`;

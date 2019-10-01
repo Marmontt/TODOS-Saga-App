@@ -8,17 +8,30 @@ describe('todos reducer', () => {
     };
 
     it('should return initial state', () => {
-        expect(reducer(undefined, {})).toEqual(initial_state)
+        const state = reducer(undefined, {});
+        expect(state).toMatchSnapshot();
     });
     it('should handle GET_TODOS_SUCCESS', () => {
         const todos = {color: '#fff', text: 'raq', fulfilled: false, index: 0};
-        expect(reducer([], {
-            type: types.GET_TODOS_SUCCESS,
-            payload: todos
-        })).toEqual({todos});
-        expect(reducer(initial_state, {type: types.GET_TODOS_SUCCESS, payload: todos})).toEqual({
-            ...initial_state,
-            todos: todos
-        })
+        const getTodosSuccess = reducer({}, {type: types.GET_TODOS_SUCCESS, payload: todos});
+        expect(getTodosSuccess).toMatchSnapshot();
+    });
+    it('should handle ADD_TODO_SUCCESS', () => {
+        const todos = {text: 'raq', color: '#fff', id: 1, fulfilled: false};
+        const addTodoSuccess = reducer(initial_state, {type: types.ADD_TODO_SUCCESS, payload: todos});
+        expect(addTodoSuccess).toMatchSnapshot();
+    });
+    it('should handle SET_FULFILLED_SUCCESS', () => {
+        const state = {
+            chosenColor: '#eb716a',
+            todos: [{text: 'raq', id: 0, color: '#fff', fulfilled: false}]
+        };
+        const fulfilled = true;
+        const index = 0;
+        const setFulfilledSuccess = reducer(state, {
+            type: types.SET_FULFILLED_SUCCESS,
+            payload: {index, fulfilled}
+        });
+        expect(setFulfilledSuccess).toMatchSnapshot();
     });
 });

@@ -11,7 +11,7 @@ const App = (props) => {
     const dispatch = useDispatch();
 
     React.useEffect(() => {
-        dispatch(todosActions.getTodos());
+        dispatch(todosActions.getTodosRequest());
     }, []);
 
     return (

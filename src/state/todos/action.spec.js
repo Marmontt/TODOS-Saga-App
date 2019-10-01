@@ -15,7 +15,7 @@ describe('actions', () => {
         })
     });
     it('getTodos',  () => {
-        const action = actionTypes.getTodos();
+        const action = actionTypes.getTodosRequest();
         expect(action).toEqual({
             type: GET_TODOS_REQUEST
         })
@@ -26,7 +26,7 @@ describe('actions', () => {
             text: 'asdasd',
             fulfilled: false
         }];
-        const action = actionTypes.setTodos(payload);
+        const action = actionTypes.getTodosSuccess(payload);
         expect(action).toEqual({
             type: GET_TODOS_SUCCESS,
             payload

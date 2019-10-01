@@ -6,7 +6,7 @@ import * as todoActions from './action';
 
 export function* getTodos() {
     const {data} = yield axios.get('http://localhost:4000/api/todos');
-    yield put(todoActions.setTodos(data))
+    yield put(todoActions.getTodosSuccess(data))
 }
 
 export function* addTodo(action) {
@@ -25,7 +25,7 @@ export function* addTodo(action) {
 //     })
 // }
 
-function* setFulfilledState(action) {
+export function* setFulfilledState(action) {
     const {data} = yield axios.post('http://localhost:4000/api/todos', action.payload);
     yield put({
         type: todoTypes.SET_FULFILLED_SUCCESS,
