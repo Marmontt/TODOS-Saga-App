@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {connect, useDispatch} from 'react-redux'
+import {useDispatch} from '../../react-redux-hooks'
 
 import * as todoActions from '../../state/todos/action'
 import TodoColorBox from "./components/TodoColorBox";

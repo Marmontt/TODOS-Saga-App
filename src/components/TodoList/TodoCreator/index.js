@@ -1,5 +1,5 @@
 import React from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch} from '../../../react-redux-hooks';
 
 import * as todoActions from "../../../state/todos/action";
 

@@ -1,30 +1,44 @@
 import React from "react";
-import {shallow} from "enzyme";
+import {shallow, configure} from "enzyme";
+import Adapter from 'enzyme-adapter-react-16';
+import configureStore from 'redux-mock-store';
+import createSagaMiddleware from 'redux-saga';
 
 import TodoCreator from "./index";
+import * as ReactReduxHooks from '../../../react-redux-hooks'
+import {SET_FULFILLED_STATE} from "../../../state/todos/types";
 
-jest.mock('react-redux', () => ({
-    useDispatch: () => {
-    },
-}));
+configure({adapter: new Adapter()});
 
 describe("TodoCreator", () => {
-    const props = {
-        color: "red",
-        text: "some-test-text",
-        fulfilled: false,
-        todoIndex: 0,
-    };
+    let wrapper;
+    let store;
+
+    beforeEach(() => {
+        const props = {
+            color: "red",
+            text: "some-test-text",
+            fulfilled: false,
+            todoIndex: 0,
+            setFulfilledState: jest.fn()
+        };
+        store = configureStore([createSagaMiddleware()])({
+            todos: [{color: '#fff', text: 'raq', fulfilled: false, index: 0}],
+            selectedColor: '#fff',
+        });
+
+        jest.spyOn(ReactReduxHooks, 'useDispatch').mockImplementation(() => store.dispatch);
+
+        wrapper = shallow(<TodoCreator store={store} {...props}/>);
+    });
 
 
     it("should render properly", () => {
-        const wrapper = shallow(<TodoCreator {...props} />,);
         expect(wrapper).toMatchSnapshot();
     });
-    // TypeError: dispatch is not a function
     it('should respond to change', () => {
-        const wrapper = shallow(<TodoCreator {...props} />,);
-        wrapper.find('input').simulate('change', {target: {checked: true}});
-        expect(wrapper.find('input')).toHaveProp({checked: true})
+        const actions = store.getActions();
+        wrapper.find('input').simulate('change');
+        expect(actions).toEqual([{type: SET_FULFILLED_STATE, payload: {fulfilled: true, index: 0}}])
     });
 });

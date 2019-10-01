@@ -1,32 +1,46 @@
-import React from "react";
-import {shallow} from "enzyme";
+import React from 'react';
+import Adapter from 'enzyme-adapter-react-16';
+import configureStore from 'redux-mock-store';
+import createSagaMiddleware from 'redux-saga';
+import {shallow, configure} from "enzyme";
 
-import {TodoMenu} from "./index";
+import TodoMenu from "./index";
+import * as ReactReduxHooks from '../../react-redux-hooks';
+import {ADD_TODO} from "../../state/todos/types";
 
-jest.mock('react-redux', () => ({
-    useDispatch: () => {
-    },
-}));
+configure({adapter: new Adapter()});
 
 describe("TodoMenu", () => {
+    let wrapper;
+    let store;
+
+    beforeEach(() => {
+        store = configureStore([createSagaMiddleware()])({
+            todos: []
+        });
+
+        jest.spyOn(ReactReduxHooks, 'useDispatch').mockImplementation(() => store.dispatch);
+
+        wrapper = shallow(<TodoMenu store={store}/>);
+    });
+
     it("should render properly", () => {
-        const wrapper = shallow(<TodoMenu/>,);
         expect(wrapper).toMatchSnapshot();
     });
     it('should respond to input', () => {
-        const wrapper = shallow(<TodoMenu/>);
         wrapper.find('input').simulate('change', {target: {value: 'raq'}});
         expect(wrapper.find('input')).toHaveValue('raq');
     });
     it('should clear text field on click', () => {
-        const wrapper = shallow(<TodoMenu/>,);
         wrapper.find('input').simulate('change', {target: {value: 'raq'}});
         wrapper.find('input').simulate('click');
         expect(wrapper.find('input')).toHaveValue('');
     });
-    // TypeError: dispatch is not a function
     it('should respond to button click', () => {
-        const wrapper = shallow(<TodoMenu/>,);
+        const actions = store.getActions();
         wrapper.find('button').simulate('click');
+        expect(actions).toEqual([{
+            type: ADD_TODO, payload: {color: "#eb716a", fulfilled: false, text: ""}
+        }])
     });
 });

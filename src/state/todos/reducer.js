@@ -5,7 +5,7 @@ const initialState = {
     todos: []
 };
 
-const todosReducer = (state = initialState, action) => {
+export const todosReducer = (state = initialState, action) => {
     let todos;
     switch (action.type) {
         case types.GET_TODOS_SUCCESS:

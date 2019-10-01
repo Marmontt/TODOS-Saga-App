@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {useDispatch} from 'react-redux'
+import React from 'react';
+import {useDispatch} from './react-redux-hooks'
 import {todosActions} from './state/todos'
 
 import TodoMenu from "./components/TodoMenu";
@@ -10,7 +10,7 @@ import './App.css';
 const App = (props) => {
     const dispatch = useDispatch();
 
-    useEffect(() => {
+    React.useEffect(() => {
         dispatch(todosActions.getTodos());
     }, []);
 

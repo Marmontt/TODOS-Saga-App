@@ -1,22 +1,43 @@
 import React from 'react';
-import {shallow} from "enzyme";
+import Adapter from 'enzyme-adapter-react-16';
+import configureStore from 'redux-mock-store';
+import createSagaMiddleware from 'redux-saga';
+import {shallow, configure} from "enzyme";
 
 import App from './App';
-import {todosActions} from './state/todos'
+import * as ReactReduxHooks from './react-redux-hooks';
+import {GET_TODOS_REQUEST} from "./state/todos/types";
 
-jest.mock('react-redux', () => ({
-    useDispatch: () => {
-    },
-}));
-
+configure({adapter: new Adapter()});
 
 describe('App', () => {
+    let wrapper;
+    let useEffect;
+    let store;
+
+    const mockUseEffect = () => {
+        useEffect.mockImplementationOnce(f => f());
+    };
+
+    beforeEach(() => {
+        store = configureStore([createSagaMiddleware()]) ({
+            todos: [{color: '#fff', text: 'raq', fulfilled: false, index: 0}],
+            selectedColor: '#fff',
+        });
+
+    useEffect = jest.spyOn(React , 'useEffect');
+    mockUseEffect();
+
+    jest.spyOn(ReactReduxHooks, 'useDispatch').mockImplementation(() => store.dispatch);
+
+    wrapper = shallow(<App store={store}/>);
+    });
+
     it('should render properly', () => {
-        const wrapper = shallow(<App/>);
         expect(wrapper).toMatchSnapshot();
     });
     it('should dispatch getTodos', () => {
-        const wrapper = shallow(<App/>);
-
+        const actions = store.getActions();
+        expect(actions).toEqual([{type: GET_TODOS_REQUEST}])
     });
 });
